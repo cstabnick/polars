@@ -487,6 +487,7 @@ impl<'a> ApplyLambda<'a> for BooleanChunked {
         init_null_count: usize,
         first_value: Option<ObjectValue>,
     ) -> PyResult<ObjectChunked<ObjectValue>> {
+        panic!("1");
         let skip = usize::from(first_value.is_some());
         if init_null_count == self.len() {
             Ok(ChunkedArray::full_null(self.name(), self.len()))
@@ -778,6 +779,8 @@ where
         init_null_count: usize,
         first_value: Option<ObjectValue>,
     ) -> PyResult<ObjectChunked<ObjectValue>> {
+        panic!("2");
+
         let skip = usize::from(first_value.is_some());
         if init_null_count == self.len() {
             Ok(ChunkedArray::full_null(self.name(), self.len()))
@@ -1063,6 +1066,8 @@ impl<'a> ApplyLambda<'a> for StringChunked {
         init_null_count: usize,
         first_value: Option<ObjectValue>,
     ) -> PyResult<ObjectChunked<ObjectValue>> {
+        panic!("3");
+
         let skip = usize::from(first_value.is_some());
         if init_null_count == self.len() {
             Ok(ChunkedArray::full_null(self.name(), self.len()))
@@ -1485,6 +1490,7 @@ impl<'a> ApplyLambda<'a> for ListChunked {
         init_null_count: usize,
         first_value: Option<ObjectValue>,
     ) -> PyResult<ObjectChunked<ObjectValue>> {
+        panic!("HI");
         let skip = usize::from(first_value.is_some());
         let pypolars = PyModule::import_bound(py, "polars")?;
         if init_null_count == self.len() {
@@ -1900,6 +1906,8 @@ impl<'a> ApplyLambda<'a> for ArrayChunked {
         init_null_count: usize,
         first_value: Option<ObjectValue>,
     ) -> PyResult<ObjectChunked<ObjectValue>> {
+        panic!("4");
+
         let skip = usize::from(first_value.is_some());
         let pypolars = PyModule::import_bound(py, "polars")?;
         if init_null_count == self.len() {
@@ -2203,6 +2211,8 @@ impl<'a> ApplyLambda<'a> for ObjectChunked<ObjectValue> {
         init_null_count: usize,
         first_value: Option<ObjectValue>,
     ) -> PyResult<ObjectChunked<ObjectValue>> {
+        panic!("5");
+
         let skip = usize::from(first_value.is_some());
         if init_null_count == self.len() {
             Ok(ChunkedArray::full_null(self.name(), self.len()))
@@ -2414,6 +2424,8 @@ impl<'a> ApplyLambda<'a> for StructChunked {
         init_null_count: usize,
         first_value: Option<ObjectValue>,
     ) -> PyResult<ObjectChunked<ObjectValue>> {
+        panic!("6");
+
         let names = self.fields().iter().map(|s| s.name()).collect::<Vec<_>>();
 
         let skip = usize::from(first_value.is_some());

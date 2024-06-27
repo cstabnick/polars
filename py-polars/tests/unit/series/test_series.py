@@ -862,6 +862,12 @@ def test_map_elements() -> None:
     a = pl.Series("a", [2, 2, 3]).cast(pl.Date)
     a.map_elements(lambda x: x)
 
+    a = pl.LazyFrame({"a": [{2}, {2}, {3}]})
+    b = a.collect().head(1)
+    k = b["a"].map_elements(lambda x: x)
+    assert len(k) == 3
+
+
 
 def test_shape() -> None:
     s = pl.Series([1, 2, 3])
